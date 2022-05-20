@@ -27,12 +27,14 @@ namespace MeetupManager.Core.Services
                 {
                     Id = m.Id,
                     Title = m.Title,
+                    Description = m.Description,
                     BeginDate = m.BeginDate,
                     EndDate = m.EndDate,
                     CountryId = m.Location!.CountryId,
                     CountryName = m.Location!.Country!.Name,
                     LocationId = m.LocationId,
-                    LocationName = m.Location!.Name
+                    LocationName = m.Location!.Name,
+                    ImageUrl = m.ImageUrl
                 });
 
             await dataSet.LoadFromQueryableAsync(query);

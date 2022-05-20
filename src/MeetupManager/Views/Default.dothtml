@@ -2,6 +2,19 @@
 @masterPage Views/MasterPage.dotmaster
 <dot:Content ContentPlaceHolderID="MainContent">
 
-    
+    <dot:Repeater DataSource="{value: Meetups}" class="d-flex">
+        <div class="card w-25 mx-2">
+            <img src="{value: ImageUrl}" class="card-img-top" Visible="{value: ImageUrl != null}" />
+            <div class="card-img-top img-none" Visible="{value: ImageUrl == null}" />
+            <div class="card-body">
+                <h5 class="card-title">{{value: Title}}</h5>
+                <h6>{{value: BeginDate.ToString("g")}} - {{value: EndDate.ToString("g")}}</h6>
+                <p class="card-text">{{value: Description}}</p>
+                <p class="card-text"><strong>{{value: LocationName}}, {{value: CountryName}}</strong></p>
+            </div>
+        </div>
+    </dot:Repeater>
+
+    <dot:DataPager DataSet="{value: Meetups}" />
 
 </dot:Content>
