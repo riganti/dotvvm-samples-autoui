@@ -1,0 +1,49 @@
+﻿@viewModel MeetupManager.ViewModels.MeetupDetailViewModel, MeetupManager
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <form>
+        <auto:BootstrapForm DataContext="{value: Meetup}"
+                            ViewName="Edit"
+                            FormGroupCssClass="mb-4"
+                            Changed-CountryId="{command: _root.Locations.RequestRefresh()}"
+                            Validation.Enabled="false"
+                            IncludeProperties="Title,Description,ImageUrl">
+            <EditorTemplate-ImageUrl>
+                <div class="img-thumbnail img-none" Visible="{value: ImageUrl == null}"></div>
+                <img src="{value: ImageUrl}" Visible="{value: ImageUrl != null}" class="img-thumbnail" />
+
+                <dot:FileUpload UploadedFiles="{value: _root.ImageUpload}"
+                                UploadCompleted="{command: _root.ProcessImage()}" />
+            </EditorTemplate-ImageUrl>
+        </auto:BootstrapForm>
+
+        <div class="row mb-4">
+            <div class="col-6">
+                <auto:BootstrapForm DataContext="{value: Meetup}" IncludeProperties="BeginDate" />
+            </div>
+            <div class="col-6">
+                <auto:BootstrapForm DataContext="{value: Meetup}" IncludeProperties="EndDate" />
+            </div>
+        </div>
+
+        <auto:BootstrapForm DataContext="{value: Meetup}" IncludeProperties="CountryId,LocationId" FormGroupCssClass="mb-4" />
+
+        <dot:ValidationSummary Validation.Target="{value: Meetup}"
+                               class="alert alert-danger" />
+
+        <div class="mt-4 text-center">
+            <dot:Button class="btn btn-primary" Click="{command: Save()}" ButtonTagName="button" IsSubmitButton="true">
+                <i class="bi bi-check"></i>
+                Save
+            </dot:Button>
+            <dot:RouteLink class="btn btn-secondary" RouteName="MeetupList">
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Cancel
+            </dot:RouteLink>
+        </div>
+    </form>
+
+</dot:Content>
+

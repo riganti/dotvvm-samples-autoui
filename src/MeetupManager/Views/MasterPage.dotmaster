@@ -1,0 +1,59 @@
+﻿@viewModel MeetupManager.ViewModels.MasterPageViewModel, MeetupManager
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>MeetupManager</title>
+    <dot:RequiredResource Name="bootstrap" />
+    <dot:RequiredResource Name="bootstrap-icons" />
+    <dot:RequiredResource Name="styles" />
+</head>
+<body>
+
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container-fluid">
+                <dot:RouteLink RouteName="Default" class="navbar-brand">
+                    <i class="bi bi-people-fill"></i>
+                    Meetup Manager
+                </dot:RouteLink>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-0 mb-lg-0">
+                        <li class="nav-item">
+                            <cc:MenuRouteLink RouteName="Default"
+                                              ActiveRouteNamePrefix="Default">
+                                <i class="bi bi-house-fill"></i>
+                                Home
+                            </cc:MenuRouteLink>
+                        </li>
+                        <li class="nav-item">
+                            <cc:MenuRouteLink RouteName="MeetupList"
+                                              ActiveRouteNamePrefix="Meetup">
+                                <i class="bi bi-calendar-event-fill"></i>
+                                Meetups
+                            </cc:MenuRouteLink>
+                        </li>
+                        <li class="nav-item">
+                            <cc:MenuRouteLink RouteName="LocationList"
+                                              ActiveRouteNamePrefix="Location">
+                                <i class="bi bi-map-fill"></i>
+                                Locations
+                            </cc:MenuRouteLink>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <dot:ContentPlaceHolder ID="MainContent" />
+
+    </div>
+
+</body>
+</html>

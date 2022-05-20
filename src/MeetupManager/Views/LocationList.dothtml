@@ -1,0 +1,34 @@
+﻿@viewModel MeetupManager.ViewModels.LocationListViewModel, MeetupManager
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <div class="button-toolbar">
+        <dot:RouteLink class="btn btn-primary" RouteName="LocationDetail">
+            <i class="bi bi-plus-circle"></i>
+            Add location
+        </dot:RouteLink>
+    </div>
+
+    <dot:GridView DataSource="{value: Locations}">
+        <auto:GridViewColumns />
+
+        <dot:GridViewTemplateColumn>
+            <dot:RouteLink RouteName="LocationDetail" Param-Id="{value: Id}">
+                <i class="bi bi-pencil-fill"></i>
+            </dot:RouteLink>
+        </dot:GridViewTemplateColumn>
+
+        <dot:GridViewTemplateColumn>
+            <dot:LinkButton Click="{command: _root.Delete(Id)}">
+                <PostBack.Handlers>
+                    <dot:ConfirmPostBackHandler Message="Do you really want to remove this location?" />
+                </PostBack.Handlers>
+
+                <i class="bi bi-trash-fill"></i>
+            </dot:LinkButton>
+        </dot:GridViewTemplateColumn>
+    </dot:GridView>
+
+</dot:Content>
+

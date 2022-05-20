@@ -1,0 +1,25 @@
+﻿@viewModel MeetupManager.ViewModels.LocationDetailViewModel, MeetupManager
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <form>
+        <auto:BootstrapForm DataContext="{value: Location}" FormGroupCssClass="mb-4" />
+
+        <dot:ValidationSummary Validation.Target="{value: Location}"
+                               class="alert alert-danger"/>
+
+        <div class="mt-4 text-center">
+            <dot:Button class="btn btn-primary" Click="{command: Save()}" ButtonTagName="button" IsSubmitButton="true">
+                <i class="bi bi-check"></i>
+                Save
+            </dot:Button>
+            <dot:RouteLink class="btn btn-secondary" RouteName="LocationList">
+                <i class="bi bi-arrow-counterclockwise"></i>
+                Cancel
+            </dot:RouteLink>
+        </div>
+    </form>
+
+</dot:Content>
+

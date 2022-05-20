@@ -1,0 +1,22 @@
+﻿.validation-summary:empty {
+    display: none;
+}
+.validation-summary li {
+    list-style-type: none;
+}
+
+.button-toolbar {
+    margin-bottom: 1.5em;
+}
+
+.img-none {
+    width: 100%;
+    height: 140px;
+    background-color: #a9a9a9;
+    color: white;
+    line-height: 140px;
+    text-align: center;
+}
+    .img-none:after {
+        content: '400x100'
+    }
