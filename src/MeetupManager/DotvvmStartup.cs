@@ -55,7 +55,14 @@ namespace MeetupManager
         {
             options.AddDefaultTempStorages("temp");
             options.AddHotReload();
-            options.AddAutoUI();
+            options.AddAutoUI(options =>
+            {
+                options.AutoDiscoverFormEditorProviders(typeof(DotvvmStartup).Assembly);
+                options.AutoDiscoverGridColumnProviders(typeof(DotvvmStartup).Assembly);
+
+                options.PropertyMetadataRules
+                    .For(p => p.Name.EndsWith("ImageUrl"), rule => rule.SetUIHint("Image"));
+            });
         }
     }
 }
