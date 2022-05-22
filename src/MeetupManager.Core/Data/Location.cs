@@ -24,4 +24,6 @@ public class Location
 
     public ICollection<Meetup> Meetups { get; set; } = new List<Meetup>();
 
+    public ICollection<AppUserLocationPreference> AppUserLocationPreferences { get; set; } = new List<AppUserLocationPreference>();
+
 }

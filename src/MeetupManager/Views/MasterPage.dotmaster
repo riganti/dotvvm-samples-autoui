@@ -32,21 +32,63 @@
                                 Home
                             </cc:MenuRouteLink>
                         </li>
-                        <li class="nav-item">
-                            <cc:MenuRouteLink RouteName="MeetupList"
-                                              ActiveRouteNamePrefix="Meetup">
-                                <i class="bi bi-calendar-event-fill"></i>
-                                Meetups
-                            </cc:MenuRouteLink>
-                        </li>
-                        <li class="nav-item">
-                            <cc:MenuRouteLink RouteName="LocationList"
-                                              ActiveRouteNamePrefix="Location">
-                                <i class="bi bi-map-fill"></i>
-                                Locations
-                            </cc:MenuRouteLink>
-                        </li>
+
+                        <dot:RoleView Roles="administrators">
+                            <IsMemberTemplate>
+                                <li class="nav-item">
+                                    <cc:MenuRouteLink RouteName="MeetupList"
+                                                      ActiveRouteNamePrefix="Meetup">
+                                        <i class="bi bi-calendar-event-fill"></i>
+                                        Meetups
+                                    </cc:MenuRouteLink>
+                                </li>
+                                <li class="nav-item">
+                                    <cc:MenuRouteLink RouteName="LocationList"
+                                                      ActiveRouteNamePrefix="Location">
+                                        <i class="bi bi-map-fill"></i>
+                                        Locations
+                                    </cc:MenuRouteLink>
+                                </li>
+                            </IsMemberTemplate>
+                        </dot:RoleView>
                     </ul>
+                    <dot:AuthenticatedView>
+                        <NotAuthenticatedTemplate>
+                            <ul class="navbar-nav mb-0 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <dot:RouteLink RouteName="SignIn" class="nav-link">
+                                        <i class="bi bi-person"></i>
+                                        Sign In
+                                    </dot:RouteLink>
+                                </li>
+                            </ul>
+                        </NotAuthenticatedTemplate>
+                        <AuthenticatedTemplate>
+                            <ul class="navbar-nav mb-0 mb-lg-0">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-person-full"></i>
+                                        {{resource: Context.HttpContext.User.Identity.Name}}
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li>
+                                            <dot:RouteLink RouteName="MyProfile" class="dropdown-item">
+                                                <i class="bi bi-gear-fill"></i>
+                                                My Profile
+                                            </dot:RouteLink>
+                                        </li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li>
+                                            <dot:LinkButton Click="{command: SignOut()}" Validation.Enabled="false" class="dropdown-item">
+                                                <i class="bi bi-box-arrow-right"></i>
+                                                Sign Out
+                                            </dot:LinkButton>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </AuthenticatedTemplate>
+                    </dot:AuthenticatedView>
                 </div>
             </div>
         </nav>

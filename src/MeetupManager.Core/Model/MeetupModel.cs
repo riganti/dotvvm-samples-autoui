@@ -49,7 +49,7 @@ namespace MeetupManager.Core.Model
 
         [Display(Name = "Location")]
         [Visible(ViewNames = "Edit")]
-        [Selector(typeof(LocationSelection))]
+        [Selector(typeof(LocationByCountrySelection))]
         [Required(ErrorMessage = "Location must be selected.")]
         public int? LocationId { get; set; }
 

@@ -1,0 +1,21 @@
+﻿@viewModel MeetupManager.ViewModels.Account.SignInViewModel, MeetupManager
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+
+    <form>
+        <auto:BootstrapForm DataContext="{value: Model}" />
+
+        <dot:ValidationSummary Validation.Target="{value: Model}"
+                               class="alert alert-danger" />
+
+        <div class="mt-4 text-center">
+            <dot:Button class="btn btn-primary" Click="{command: SignIn()}" ButtonTagName="button" IsSubmitButton="true">
+                <i class="bi bi-person"></i>
+                Sign In
+            </dot:Button>
+        </div>
+    </form>
+
+</dot:Content>
+

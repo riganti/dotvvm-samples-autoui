@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DotVVM.AutoUI.ViewModel;
 using DotVVM.Core.Storage;
 using DotVVM.Framework.Controls;
+using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
 using MeetupManager.Core.Model;
 using MeetupManager.Core.Selection;
@@ -28,7 +29,7 @@ namespace MeetupManager.ViewModels
 
         public SelectionViewModel<CountrySelection> Countries { get; set; } = new();
 
-        public SelectionViewModel<LocationSelection, int?> Locations { get; set; }
+        public SelectionViewModel<LocationByCountrySelection, int?> Locations { get; set; }
 
         public UploadedFilesCollection ImageUpload { get; set; } = new();
 
@@ -39,6 +40,12 @@ namespace MeetupManager.ViewModels
             this.meetupsService = meetupsService;
             this.uploadedFileStorage = uploadedFileStorage;
             this.imageStorageService = imageStorageService;
+        }
+
+        public override async Task Init()
+        {
+            await Context.Authorize(roles: new[] { "administrators" });
+            await base.Init();
         }
 
         public override async Task PreRender()

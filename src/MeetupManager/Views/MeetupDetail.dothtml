@@ -6,7 +6,6 @@
     <form>
         <auto:BootstrapForm DataContext="{value: Meetup}"
                             ViewName="Edit"
-                            FormGroupCssClass="mb-4"
                             Changed-CountryId="{command: _root.Locations.RequestRefresh()}"
                             Validation.Enabled="false"
                             IncludeProperties="Title,Description,ImageUrl">
@@ -28,7 +27,7 @@
             </div>
         </div>
 
-        <auto:BootstrapForm DataContext="{value: Meetup}" IncludeProperties="CountryId,LocationId" FormGroupCssClass="mb-4" />
+        <auto:BootstrapForm DataContext="{value: Meetup}" IncludeProperties="CountryId,LocationId" />
 
         <dot:ValidationSummary Validation.Target="{value: Meetup}"
                                class="alert alert-danger" />

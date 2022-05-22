@@ -6,8 +6,7 @@ namespace MeetupManager.Core.Selection;
 
 public record LocationSelection : Selection<int>;
 
-
-public class LocationSelectionProvider : ISelectionProvider<LocationSelection, int?>
+public class LocationSelectionProvider : ISelectionProvider<LocationSelection>
 {
     private readonly AppDbContext dbContext;
 
@@ -16,21 +15,15 @@ public class LocationSelectionProvider : ISelectionProvider<LocationSelection, i
         this.dbContext = dbContext;
     }
 
-    public Task<List<LocationSelection>> GetSelectorItems(int? countryId)
+    public Task<List<LocationSelection>> GetSelectorItems()
     {
-        if (countryId == null)
-        {
-            return Task.FromResult(new List<LocationSelection>());
-        }
-
         return dbContext.Locations
-            .Where(l => l.CountryId == countryId)
-            .OrderBy(c => c.Name)
             .Select(l => new LocationSelection()
             {
                 Value = l.Id,
-                DisplayName = l.Name
+                DisplayName = l.Country!.Name + " - " + l.Name
             })
+            .OrderBy(c => c.DisplayName)
             .ToListAsync();
     }
 }

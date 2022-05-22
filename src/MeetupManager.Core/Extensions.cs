@@ -8,6 +8,7 @@ using DotVVM.Framework.Controls;
 using MeetupManager.Core.Data;
 using MeetupManager.Core.Selection;
 using MeetupManager.Core.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,6 +21,9 @@ namespace MeetupManager.Core
         {
             services.AddEntityFrameworkSqlite()
                 .AddDbContext<AppDbContext>();
+
+            services.AddIdentity<AppUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppDbContext>();
 
             services.Scan(a => a.FromAssemblies(typeof(Extensions).Assembly)
 

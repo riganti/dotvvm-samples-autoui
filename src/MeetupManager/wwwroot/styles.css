@@ -22,3 +22,7 @@
         display: flex;
         align-items: center;
     }
+
+input[type=checkbox] {
+    margin-right: 0.5em;
+}

@@ -18,6 +18,8 @@ namespace MeetupManager
             ConfigureControls(config, applicationPath);
             ConfigureResources(config, applicationPath);
 
+            config.Styles.Register<BootstrapForm>()
+                .SetProperty(f => f.FormGroupCssClass, "mb-4");
             config.Styles.Register<ValidationSummary>()
                 .AddClass("alert alert-danger validation-summary");
             config.Styles.Register<GridView>()
@@ -27,6 +29,8 @@ namespace MeetupManager
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
         {
             config.RouteTable.Add("Default", "", "Views/Default.dothtml");
+            config.RouteTable.Add("SignIn", "account/sign-in", "Views/Account/SignIn.dothtml");
+            config.RouteTable.Add("MyProfile", "account/my-profile", "Views/Account/MyProfile.dothtml");
 
             config.RouteTable.Add("LocationList", "locations", "Views/LocationList.dothtml");
             config.RouteTable.Add("LocationDetail", "location/{Id?:int}", "Views/LocationDetail.dothtml");

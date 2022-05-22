@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DotVVM.Framework.Controls;
+using DotVVM.Framework.Hosting;
 using DotVVM.Framework.ViewModel;
 using MeetupManager.Core.Model;
 using MeetupManager.Core.Services;
@@ -30,6 +31,12 @@ namespace MeetupManager.ViewModels
         public MeetupListViewModel(MeetupsService meetupsService)
         {
             this.meetupsService = meetupsService;
+        }
+
+        public override async Task Init()
+        {
+            await Context.Authorize(roles: new[] { "administrators" });
+            await base.Init();
         }
 
         public override async Task PreRender()

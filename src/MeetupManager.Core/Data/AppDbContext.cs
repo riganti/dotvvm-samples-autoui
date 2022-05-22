@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace MeetupManager.Core.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : IdentityDbContext<AppUser>
 {
 
     public DbSet<Country> Countries => Set<Country>();
@@ -10,6 +11,7 @@ public class AppDbContext : DbContext
     public DbSet<Location> Locations => Set<Location>();
 
     public DbSet<Meetup> Meetups => Set<Meetup>();
+    
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
