@@ -11,7 +11,7 @@
                             Validation.Enabled="false"
                             IncludeProperties="Title,Description,ImageUrl">
             <EditorTemplate-ImageUrl>
-                <div class="img-thumbnail img-none" Visible="{value: ImageUrl == null}"></div>
+                <div class="img-thumbnail img-none" Visible="{value: ImageUrl == null}" style="max-width: 400px"></div>
                 <img src="{value: ImageUrl}" Visible="{value: ImageUrl != null}" class="img-thumbnail" />
 
                 <dot:FileUpload UploadedFiles="{value: _root.ImageUpload}"
