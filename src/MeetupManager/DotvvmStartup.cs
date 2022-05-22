@@ -18,6 +18,8 @@ namespace MeetupManager
             ConfigureControls(config, applicationPath);
             ConfigureResources(config, applicationPath);
 
+            //System.Runtime.CompilerServices.RuntimeHelpers.RunClassConstructor(typeof(BootstrapForm).TypeHandle);
+
             config.Styles.Register<BootstrapForm>()
                 .SetProperty(f => f.FormGroupCssClass, "mb-4");
             config.Styles.Register<ValidationSummary>()

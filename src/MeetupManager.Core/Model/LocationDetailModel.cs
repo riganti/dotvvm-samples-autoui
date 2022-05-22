@@ -24,7 +24,7 @@ public class LocationDetailModel
     public string? Zip { get; set; }
 
     [Display(Name = "Country")]
-    [Selector(typeof(CountrySelection))]
+    [Selection(typeof(CountrySelection))]
     [Required(ErrorMessage = "Country is required!")]
     public int? CountryId { get; set; }
 }

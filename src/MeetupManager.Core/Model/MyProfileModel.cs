@@ -20,7 +20,7 @@ namespace MeetupManager.Core.Model
         public string? LastName { get; set; }
 
         [Display(Name = "Preferred locations")]
-        [Selector(typeof(LocationSelection))]
+        [Selection(typeof(LocationSelection))]
         public List<int> LocationPreferences { get; set; } = new();
 
     }
