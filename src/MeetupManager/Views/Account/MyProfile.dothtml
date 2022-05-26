@@ -7,7 +7,7 @@
 
     <form>
         <auto:BootstrapForm DataContext="{value: Model}" />
-
+        
         <dot:ValidationSummary Validation.Target="{value: Model}"
                                class="alert alert-danger" />
 
