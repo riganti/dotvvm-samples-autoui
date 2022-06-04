@@ -19,7 +19,7 @@ namespace MeetupManager.Controls
         protected override GridViewColumn CreateColumnCore(PropertyDisplayMetadata property, AutoGridViewColumn.Props props, AutoUIContext context)
         {
             var valueBinding = ValueOrBinding<string>.FromBoxedValue(context.CreateValueBinding(property));
-
+            
             return new GridViewTemplateColumn()
             {
                 ContentTemplate = new CloneTemplate(
