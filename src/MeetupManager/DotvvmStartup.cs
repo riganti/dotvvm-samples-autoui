@@ -49,8 +49,7 @@ namespace MeetupManager
         {
             // register custom resources and adjust paths to the built-in resources
             config.Resources.RegisterStylesheetFile("bootstrap-css", "wwwroot/lib/bootstrap/css/bootstrap.min.css");
-            config.Resources.RegisterScriptFile("bootstrap", "wwwroot/lib/bootstrap/js/bootstrap.min.js", dependencies: new[] { "bootstrap-css", "jquery" });
-            config.Resources.RegisterScriptFile("jquery", "wwwroot/lib/jquery/jquery.min.js");
+            config.Resources.RegisterScriptFile("bootstrap", "wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js", dependencies: new[] { "bootstrap-css" });
             config.Resources.RegisterStylesheetFile("bootstrap-icons","wwwroot/lib/bootstrap-icons/font/bootstrap-icons.min.css");
             config.Resources.RegisterStylesheetFile("styles", "wwwroot/styles.css");
         }
