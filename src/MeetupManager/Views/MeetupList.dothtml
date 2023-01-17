@@ -13,19 +13,17 @@
     <dot:GridView DataSource="{value: Meetups}">
         <auto:GridViewColumns ViewName="List" />
 
-        <dot:GridViewTemplateColumn>
-            <dot:RouteLink RouteName="MeetupDetail" Param-Id="{value: Id}">
-                <i class="bi bi-pencil-fill"></i>
+        <dot:GridViewTemplateColumn CssClass="text-end">
+            <dot:RouteLink class="btn btn-secondary" RouteName="MeetupDetail" Param-Id="{value: Id}">
+                <i class="bi bi-pencil-fill"></i> Edit
             </dot:RouteLink>
-        </dot:GridViewTemplateColumn>
 
-        <dot:GridViewTemplateColumn>
-            <dot:LinkButton Click="{command: _root.Delete(Id)}">
+            <dot:LinkButton class="btn btn-danger" Click="{command: _root.Delete(Id)}">
                 <PostBack.Handlers>
                     <dot:ConfirmPostBackHandler Message="Do you really want to remove this meetup?" />
                 </PostBack.Handlers>
 
-                <i class="bi bi-trash-fill"></i>
+                <i class="bi bi-trash-fill"></i> Delete
             </dot:LinkButton>
         </dot:GridViewTemplateColumn>
     </dot:GridView>

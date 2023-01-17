@@ -5,23 +5,24 @@
 
     <div class="alert alert-success" DataContext="{value: StatusMessage}">{{value: _this}}</div>
 
-    <form>
-        <auto:BootstrapForm DataContext="{value: Model}" />
-        
-        <dot:ValidationSummary Validation.Target="{value: Model}"
-                               class="alert alert-danger" />
+    <div class="row justify-content-center">
+        <form class="col-md-6 col-xl-4">
+            <auto:BootstrapForm DataContext="{value: Model}" />
 
-        <div class="mt-4 text-center">
-            <dot:Button class="btn btn-primary" Click="{command: Save()}" ButtonTagName="button" IsSubmitButton="true">
-                <i class="bi bi-check"></i>
-                Save
-            </dot:Button>
-            <dot:RouteLink class="btn btn-secondary" RouteName="Default">
-                <i class="bi bi-arrow-counterclockwise"></i>
-                Cancel
-            </dot:RouteLink>
-        </div>
-    </form>
+            <dot:ValidationSummary Validation.Target="{value: Model}"
+                                   class="alert alert-danger" />
 
+            <div class="mt-4 text-center">
+                <dot:Button class="btn btn-primary" Click="{command: Save()}" ButtonTagName="button" IsSubmitButton="true">
+                    <i class="bi bi-check"></i>
+                    Save
+                </dot:Button>
+                <dot:RouteLink class="btn btn-secondary" RouteName="Default">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    Cancel
+                </dot:RouteLink>
+            </div>
+        </form>
+    </div>
 </dot:Content>
 

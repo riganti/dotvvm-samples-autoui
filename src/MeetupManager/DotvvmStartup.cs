@@ -23,7 +23,7 @@ namespace MeetupManager
             config.Styles.Register<ValidationSummary>()
                 .AddClass("alert alert-danger validation-summary");
             config.Styles.Register<GridView>()
-                .AddClass("table table-striped table-bordered");
+                .AddClass("table table-striped");
         }
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)

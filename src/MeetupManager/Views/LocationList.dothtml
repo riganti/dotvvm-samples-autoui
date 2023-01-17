@@ -14,18 +14,15 @@
         <auto:GridViewColumns />
 
         <dot:GridViewTemplateColumn>
-            <dot:RouteLink RouteName="LocationDetail" Param-Id="{value: Id}">
-                <i class="bi bi-pencil-fill"></i>
+            <dot:RouteLink class="btn btn-secondary" RouteName="LocationDetail" Param-Id="{value: Id}">
+                <i class="bi bi-pencil-fill"></i> Edit
             </dot:RouteLink>
-        </dot:GridViewTemplateColumn>
-
-        <dot:GridViewTemplateColumn>
-            <dot:LinkButton Click="{command: _root.Delete(Id)}">
+            <dot:LinkButton class="btn btn-danger" Click="{command: _root.Delete(Id)}">
                 <PostBack.Handlers>
                     <dot:ConfirmPostBackHandler Message="Do you really want to remove this location?" />
                 </PostBack.Handlers>
 
-                <i class="bi bi-trash-fill"></i>
+                <i class="bi bi-trash-fill"></i> Delete
             </dot:LinkButton>
         </dot:GridViewTemplateColumn>
     </dot:GridView>

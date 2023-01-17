@@ -4,13 +4,26 @@
 
     <dot:Repeater DataSource="{value: Meetups}" class="d-flex">
         <div class="card w-25 mx-2">
+
             <img src="{value: ImageUrl}" class="card-img-top" Visible="{value: ImageUrl != null}" />
             <div class="card-img-top img-none" Visible="{value: ImageUrl == null}" />
+            
             <div class="card-body">
-                <h5 class="card-title">{{value: Title}}</h5>
-                <h6>{{value: BeginDate.ToString("g")}} - {{value: EndDate.ToString("g")}}</h6>
+            
+                <h5 class="card-title mb-4">{{value: Title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    {{value: BeginDate.ToString("D")}}
+                </h6>
+                <h6 class="card-subtitle mb-4 text-muted">
+                    {{value: BeginDate.ToString("t")}} - {{value: EndDate.ToString("t")}}
+                </h6>
+
                 <p class="card-text">{{value: Description}}</p>
-                <p class="card-text"><strong>{{value: LocationName}}, {{value: CountryName}}</strong></p>
+                
+                <p class="card-text text-muted">{{value: LocationName}}, {{value: CountryName}}</p>
+            </div>
+            <div class="card-footer text-end">
+                <a href="#" class="btn btn-primary">Register now</a>
             </div>
         </div>
     </dot:Repeater>
