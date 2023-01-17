@@ -352,3 +352,4 @@ MigrationBackup/
 /src/MeetupManager/meetups.sqlite-wal
 /src/MeetupManager/meetups.sqlite-shm
 /src/MeetupManager/wwwroot/lib
+/src/MeetupManager/meetups.sqlite
