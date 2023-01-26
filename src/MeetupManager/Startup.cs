@@ -10,19 +10,21 @@ using MeetupManager.Core;
 using MeetupManager.Core.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using System.Data.Entity.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace MeetupManager
 {
+    
     public class Startup
     {
-
         public IConfiguration Configuration { get; private set; }
 
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
         }
-
+        
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -43,7 +45,7 @@ namespace MeetupManager
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env,AppDbContext dataContext)
         {
             if (env.IsDevelopment())
             {
@@ -55,7 +57,7 @@ namespace MeetupManager
                 app.UseHttpsRedirection();
                 app.UseHsts();
             }
-
+            dataContext.Database.Migrate();
             app.UseRouting();
 
 			app.UseAuthentication();

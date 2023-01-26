@@ -20,8 +20,8 @@ public class AppDbContext : IdentityDbContext<AppUser>
             optionsBuilder.UseSqlite("Data Source=meetups.sqlite");
         }
     }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Country>()
             .HasData(
