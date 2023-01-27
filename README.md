@@ -9,7 +9,7 @@ This is a sample application that demonstrates where you can use [DotVVM](https:
 
 ### How to run the sample
 
-1. [Open the GitHub repo in Visual Studio](git-client://clone/?repo=https%3A%2F%2Fgithub.com%2Friganti%2Fdotvvm-samples-blazingpizza)
+1. [Open the GitHub repo in Visual Studio](git-client://clone/?repo=https%3A%2F%2Fgithub.com%2Friganti%2Fdotvvm-samples-autoui)
 or 
 `git clone https://github.com/riganti/dotvvm-samples-autoui.git`
 
