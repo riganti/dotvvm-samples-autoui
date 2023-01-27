@@ -11,7 +11,7 @@
     </div>
 
     <dot:GridView DataSource="{value: Locations}">
-        <auto:GridViewColumns />
+        <auto:GridViewColumns/>
 
         <dot:GridViewTemplateColumn>
             <dot:RouteLink class="btn btn-secondary" RouteName="LocationDetail" Param-Id="{value: Id}">
