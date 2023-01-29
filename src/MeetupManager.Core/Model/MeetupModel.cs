@@ -31,7 +31,6 @@ namespace MeetupManager.Core.Model
         [Display(Name = "Start time")]
         [DataType(DataType.DateTime)]
         [Required(ErrorMessage = "Event begin date is required.")]
-        [Visible(ViewNames = "Edit")]
         public DateTime BeginDate { get; set; }
 
         [Display(Name = "End time")]
@@ -39,10 +38,6 @@ namespace MeetupManager.Core.Model
         [Required(ErrorMessage = "Event end date is required.")]
         [Visible(ViewNames = "Edit")]
         public DateTime EndDate { get; set; }
-
-        [Display(Name = "Date & Time")]
-        [Visible(ViewNames = "List")]
-        public string DateDisplayText => $"{BeginDate.ToString("g")} - {EndDate.ToString("t")}";
 
         [Display(Name = "Country")]
         [Visible(ViewNames = "Edit")]

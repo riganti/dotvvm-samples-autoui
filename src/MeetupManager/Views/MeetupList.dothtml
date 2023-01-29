@@ -11,7 +11,13 @@
     </div>
 
     <dot:GridView DataSource="{value: Meetups}">
-        <auto:GridViewColumns ViewName="List" />
+        <auto:GridViewColumns ViewName="List">
+            <ContentTemplate-BeginDate>
+                {{value: BeginDate.ToString("d")}}
+                <br />
+                {{value: BeginDate.ToString("t")}} - {{value: EndDate.ToString("t")}}
+            </ContentTemplate-BeginDate>
+        </auto:GridViewColumns>
 
         <dot:GridViewTemplateColumn CssClass="text-end">
             <dot:RouteLink class="btn btn-secondary" RouteName="MeetupDetail" Param-Id="{value: Id}">
