@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="DotVVM.AutoUI.Annotations" Version="4.1.0-preview19-final" />
-    <PackageReference Include="DotVVM.Core" Version="4.1.0-preview19-final" />
+    <PackageReference Include="DotVVM.AutoUI.Annotations" Version="4.1.0" />
+    <PackageReference Include="DotVVM.Core" Version="4.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
